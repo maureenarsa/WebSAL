@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "Ngampilan_1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Suparno, DRS", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.359555556000089, -7.798666666999964, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Andres Budi Wijayanto", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.355850390000057, -7.798066259999928, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "David Budi Santoso", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.355751410000039, -7.798078519999933, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Krismansah", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.355821510000055, -7.798265889999925, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Ikrar Laga Tresna", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.355804460000058, -7.798365259999969, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Suwarjono", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.354514210000048, -7.806527359999961, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Paijo Sumar", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.354447, -7.806905, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Sarjono", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.348568, -7.811226, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Mardiyono", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.355882680000036, -7.799013809999963, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Tri Purwanti", "FolderPath": "Ngampilan", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.356690810000089, -7.799501439999972, 0.0 ] } }
+]
+}

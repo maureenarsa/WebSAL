@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SIPERKIM-Kota Yogyakarta</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <!-- Favicon -->
+    <link href="img/logo-kota-yogyakarta.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- CSS Leaflet BLM BISA KLOP-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap JS & Popper.js (Wajib untuk Dropdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Marker Cluster -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+    <!-- Leaflet.markercluster JS -->
+    <!-- <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script> -->
+
+    <style>
+        /* Styling untuk peta */
+        /* Styling untuk peta */
+        #map-container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .team-item {
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .team-item:hover {
+            transform: scale(1.05);
+        }
+
+        .team-title {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .team-img img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .modal-content img {
+            width: 100%;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .program-card {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .program-card:hover {
+            transform: scale(1.03);
+        }
+
+        .program-img {
+            width: 40%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .program-body {
+            width: 60%;
+            padding: 20px;
+        }
+
+        .program-body h5 {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .program-body p {
+            font-size: 14px;
+            color: #666;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .program-card {
+                flex-direction: column;
+            }
+
+            .program-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .program-body {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Dark Mode Styling */
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dark-mode .topbar {
+            background-color: #1e1e1e;
+        }
+
+        .dark-mode a,
+        .dark-mode p,
+        .dark-mode h1,
+        .dark-mode h5 {
+            color: #ffffff !important;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background-color: #f8f9fa;
+            color: #262626;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .tab-btn.clicked,
+        .tab-btn.active-btn {
+            background-color: #085ccc;
+            color: white;
+            border-color: aqua;
+        }
+
+        .tab-btn.clicked {
+            background-color: #085ccc;
+            color: white;
+            border-color: aqua;
+        }
+
+        /* Styling untuk fungsi pencarian */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            margin-left: 5px;
+            background-color: #085ccc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #085ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
+        <div class="container">
+            <div class="row gx-0 align-items-center">
+                <!-- Kalender & Waktu -->
+                <div class="col-lg-6 text-center text-lg-start">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <i class="fas fa-calendar-alt text-primary me-2"></i>
+                            <span id="currentDate"></span>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock text-primary me-2"></i>
+                            <span id="currentTime"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Dark/Light Mode -->
+                <div class="col-lg-6 text-center text-lg-end">
+                    <button id="themeToggle" class="btn btn-sm btn-outline-primary">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Script untuk Menampilkan Tanggal, Waktu, dan Tema -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fungsi menampilkan waktu & tanggal
+            function updateDateTime() {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById("currentDate").textContent = now.toLocaleDateString("id-ID", options);
+                document.getElementById("currentTime").textContent = now.toLocaleTimeString("id-ID");
+            }
+            setInterval(updateDateTime, 1000);
+            updateDateTime();
+
+            // Tema Dark/Light Mode
+            const themeToggle = document.getElementById("themeToggle");
+            function setTheme(mode) {
+                if (mode === "dark") {
+                    document.body.classList.add("dark-mode");
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                    localStorage.setItem("theme", "light");
+                }
+            }
+
+            // Cek penyimpanan tema sebelumnya
+            const savedTheme = localStorage.getItem("theme") || "light";
+            setTheme(savedTheme);
+
+            // Event Toggle
+            themeToggle.addEventListener("click", function () {
+                const currentTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+                setTheme(currentTheme);
+            });
+        });
+    </script>
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a href="#" class="navbar-brand p-0 d-flex align-items-center">
+                    <img src="img/perkim-logo.png" alt="SIPERKIM Logo" class="img-fluid"
+                        style="max-height: 80px; width: auto;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto"
+                        style="font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 500;">
+                        <li class="nav-item">
+                            <a href="#beranda" class="nav-link active">Beranda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="programDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Program</a>
+                            <ul class="dropdown-menu" aria-labelledby="programDropdown">
+                                <li><a class="dropdown-item" href="#deskripsi">RTLH</a></li>
+                                <li><a class="dropdown-item" href="#deskripsi">Penataan Kawasan Kumuh</a></li>
+                                <li><a class="dropdown-item" href="#deskripsi">Sistem Air Limbah</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#deskripsi">MKC</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#produk" class="nav-link">Produk Peta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#kontak" class="nav-link">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Carousel Start -->
+    <div class="header-carousel owl-carousel" id="beranda">
+        <div class="header-carousel-item position-relative"
+            style="background: url('img/') no-repeat center center/cover;">
+            <div class="carousel-caption"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgb(34, 137, 174), rgba(49, 96, 176, 0.3));">
+                <div class="container">
+                    <div class="container-fluid px-5">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-12 animated fadeInUp w-100">
+                                <div style="font-family: 'Poppins', sans-serif;">
+                                    <h2 class="text-white mb-4 text-center"
+                                        style="font-size: 2.8rem; font-weight: 700; text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);">
+                                        Apa itu SIPERKIM?
+                                    </h2>
+
+                                    <p class="mb-4 fs-5 text-white"
+                                        style="line-height: 1.8; text-align: justify; text-justify: inter-word; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);">
+                                        SIPERKIM adalah Sistem Informasi Perumahan dan Kawasan Permukiman yang
+                                        merupakan
+                                        sistem untuk mengelola dan menyediakan data terkait perumahan serta kawasan
+                                        permukiman. Sistem ini memudahkan perencanaan, pemantauan, pengambilan
+                                        keputusan, serta penyebaran informasi kepada masyarakat di Kota Yogyakarta.
+                                    </p>
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2 shadow-lg btn-hover"
+                                            href="https://www.youtube.com/watch?v=uiomdEjAXIE">
+                                            <i class="fas fa-play-circle me-2"></i> Profil DPUPKP Kota Yogyakarta
+                                        </a>
+                                        <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2 shadow-lg btn-hover-dark"
+                                            href="https://pu.jogjakota.go.id/">Selengkapnya >></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-carousel-item position-relative"
+            style="background: url('img/') no-repeat center center/cover;">
+            <div class="carousel-caption"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgb(34, 137, 174), rgba(42, 82, 152, 0.3));">
+                <div class="container">
+                    <div class="container-fluid px-5">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-12 animated fadeInUp w-100">
+                                <div style="font-family: 'Poppins', sans-serif;">
+                                    <h2 class="text-white mb-4 text-center"
+                                        style="font-size: 2.8rem; font-weight: 700; text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);">
+                                        Apa itu Perumahan dan Kawasan Permukiman?
+                                    </h2>
+                                    <p class="mb-4 fs-5 text-white"
+                                        style="line-height: 1.8; text-align: justify; text-justify: inter-word; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);">
+                                        Perumahan dan kawasan permukiman merupakan satu kesatuan sistem yang
+                                        mencakup
+                                        pembinaan, penyelenggaraan perumahan dan kawasan permukiman, pemeliharaan
+                                        serta
+                                        perbaikan. Selain itu, sistem ini juga meliputi upaya pencegahan dan
+                                        peningkatan
+                                        kualitas terhadap perumahan serta permukiman kumuh, penyediaan lahan,
+                                        pendanaan
+                                        dan
+                                        sistem pembiayaan, serta peran aktif masyarakat dalam pengelolaannya.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Feature Start -->
+
+    <body class="bg-gray-100">
+
+        <body class="bg-gray-100">
+            <div class="container py-5">
+                <div class="bg-white shadow-lg rounded-2xl p-4">
+                    <!-- Tambahkan di bagian <body> -->
+                    <div class="flex-container">
+                        <button id="peta1Btn"
+                            class="tab-btn active-btn px-4 py-2 rounded-md transition-colors duration-300 bg-gray-200 text-gray-700 border border-gray-300"
+                            onclick="showMap('map1', this)">Peta RTLH</button>
+                        <button id="peta2Btn"
+                            class="tab-btn px-4 py-2 rounded-md transition-colors duration-300 bg-gray-200 text-gray-700 border border-gray-300"
+                            onclick="showMap('map2', this)">Peta SAL</button>
+                    </div>
+                    <div class="search-container"><input type="text" id="searchInput" class="search-box" placeholder="Cari berdasarkan nama pemilik...">
+                            <button class="search-button" onclick="searchLocation()">Cari</button>
+                                            </div>
+                    <div id="map-container">
+                        <div id="map1" class="map active"></div>
+                        <div id="map2" class="map"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                var maps = {};
+                var layerGroups = {};
+                var markers = {};
+        
+                function initializeMapRTLH() {
+                    var map = L.map('map1').setView([-7.797068, 110.370529], 13);
+                    var googleSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                        attribution: '© Google',
+                        maxZoom: 22
+                    }).addTo(map);
+                    maps['map1'] = map;
+
+                    // Ikon khusus untuk marker
+                    var customIcon = L.icon({
+                        iconUrl: 'img/icon/location.png',
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15],
+                        popupAnchor: [0, -30]
+                    });
+
+                    var baseMaps = {
+                        "Google Satellite": googleSatellite,
+                        "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+                        "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '© Carto' })
+                    };
+
+                    L.control.layers(baseMaps).addTo(map);
+
+                    // Fungsi untuk menampilkan data batas admin YK di map RTLH
+                    fetch('data/batas/batas-admin-YK.geojson')
+                        .then(response => response.json())
+                        .then(data => {
+                            L.geoJSON(data, {
+                                style: function (feature) {
+                                    return {
+                                        color: "brown",
+                                        weight: 3,
+                                        fillOpacity: 0.1
+                                    };
+                                }
+                            }).addTo(map);
+                        })
+                        .catch(error => console.error("Terjadi kesalahan saat memuat GeoJSON:", error));
+
+                    // Fungsi untuk menampilkan beberapa data RTLH
+                    ['Gondokusuman_1', 'Gondoman_1', 'Jetis_1', 'Kotagede_1', 'Mantrijeron_1', 'Mergangsan_1', 'Ngampilan_1', 'Pakualaman1', 'Tegalrejo_1'].forEach(file => {
+                        fetch(`data/RTLH/${file}.geojson`)
+                            .then(response => response.json())
+                            .then(data => {
+                                L.geoJSON(data, {
+                                    pointToLayer: function (feature, latlng) {
+                                        return L.marker(latlng, { icon: customIcon });
+                                    },
+                                    onEachFeature: function (feature, layer) {
+                                        var popupContent = `
+                                            <div style="font-family: 'Poppins', sans-serif; font-size: 14px; line-height: 1.5;">
+                                                <h5 style="margin: 0; font-size: 16px; color: #085ccc; text-align: center;">Informasi Lokasi</h5>
+                                                <hr style="margin: 5px 0; border: 0; border-top: 1px solid #ddd;">
+                                                <p style="margin: 5px 0;">
+                                                    <strong>Nama Pemilik:</strong> ${feature.properties.Name}<br>
+                                                </p>
+                                            </div>
+                                        `;
+                                        layer.bindPopup(popupContent);
+                                    }
+                                }).addTo(map); // Tambahkan langsung ke peta
+                            })
+                            .catch(error => console.error(`Terjadi kesalahan saat memuat ${file}.geojson:`, error));
+                    });
+                }
+        
+                function initializeMapSAL() {
+                    var map = L.map('map2').setView([-7.797068, 110.370529], 13);
+                    var googleSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                        attribution: '© Google',
+                        maxZoom: 22
+                    }).addTo(map);
+                    maps['map2'] = map;
+
+                    // Ikon khusus untuk marker
+                    var customIcon = L.icon({
+                        iconUrl: 'img/icon/gps.png',
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15],
+                        popupAnchor: [0, -30]
+                    });
+
+                    var baseMaps = {
+                        "Google Satellite": googleSatellite,
+                        "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }),
+                        "Carto Light": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '© Carto' })
+                    };
+
+                    L.control.layers(baseMaps).addTo(map);
+
+                    // Fungsi untuk menampilkan data batas admin YK di peta SAL
+                    fetch('data/batas/batas-admin-YK.geojson')
+                        .then(response => response.json())
+                        .then(data => {
+                            L.geoJSON(data, {
+                                style: function (feature) {
+                                    return {
+                                        color: "yellow", // Warna garis batas
+                                        weight: 2, // Ketebalan garis
+                                        fillOpacity: 0.1 // Transparansi area
+                                    };
+                                }
+                            }).addTo(map);
+                        })
+                        .catch(error => console.error("Terjadi kesalahan saat memuat GeoJSON batas administrasi:", error));
+
+                    // Fungsi untuk menampilkan data titik SAL
+                    fetch('data/SAL/TitikSRWebGIS.geojson')
+                        .then(response => response.json())
+                        .then(data => {
+                            L.geoJSON(data, {
+                                pointToLayer: function (feature, latlng) {
+                                    return L.marker(latlng, { icon: customIcon });
+                                },
+                                onEachFeature: function (feature, layer) {
+                                    var popupContent = `
+                        <div style="font-family: 'Poppins', sans-serif; font-size: 14px;">
+                            <h5 style="margin: 0; font-size: 16px; color: #085ccc;">Informasi Lokasi</h5>
+                            <p style="margin: 5px 0;">
+                                <strong>Nama Pemilik:</strong> ${feature.properties.Nama_Pemil}<br>
+                                <strong>Kecamatan:</strong> ${feature.properties.Kecamatan}<br>
+                                <strong>Kelurahan:</strong> ${feature.properties.Kelurahan}<br>
+                                <strong>Alamat:</strong> ${feature.properties.Alamat}
+                            </p>
+                        </div>
+                    `;
+                                    layer.bindPopup(popupContent);
+                                }
+                            }).addTo(map); // Tambahkan langsung ke peta
+                        })
+                        .catch(error => console.error("Terjadi kesalahan saat memuat GeoJSON titik SAL:", error));
+                }
+  
+                function searchLocationRTLH() {
+                    let query = document.getElementById("searchInput").value.trim().toLowerCase();
+                    if (query) {
+                        let found = false;
+
+                        // Loop melalui file GeoJSON RTLH
+                        ['Gondokusuman_1', 'Gondoman_1', 'Jetis_1', 'Kotagede_1', 'Mantrijeron_1', 'Mergangsan_1', 'Ngampilan_1', 'Pakualaman1', 'Tegalrejo_1'].forEach(file => {
+                            fetch(`data/RTLH/${file}.geojson`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    // Loop melalui fitur GeoJSON
+                                    data.features.forEach(feature => {
+                                        let name = feature.properties.Name.toLowerCase(); // Properti 'Name' dari GeoJSON
+                                        if (name.includes(query)) {
+                                            found = true;
+                                            let coordinates = feature.geometry.coordinates;
+                                            let latlng = [coordinates[1], coordinates[0]]; // GeoJSON menggunakan [lng, lat]
+
+                                            // Zoom ke lokasi dan tampilkan popup
+                                            maps['map1'].setView(latlng, 15);
+                                            L.popup()
+                                                .setLatLng(latlng)
+                                                .setContent(`
+                                                    <div style="font-family: 'Poppins', sans-serif; font-size: 14px;">
+                                                        <h5 style="margin: 0; font-size: 16px; color: #085ccc;">Informasi Lokasi</h5>
+                                                        <p style="margin: 5px 0;">
+                                                            <strong>Nama Pemilik:</strong> ${feature.properties.Name}<br>
+                                                            <strong>Status:</strong> ${feature.properties.Status || 'Tidak tersedia'}
+                                                        </p>
+                                                    </div>
+                                                `)
+                                                .openOn(maps['map1']);
+                                        }
+                                    });
+
+                                    if (!found) {
+                                        alert("Lokasi dengan nama tersebut tidak ditemukan!");
+                                    }
+                                })
+                                .catch(error => console.error(`Terjadi kesalahan saat memuat ${file}.geojson:`, error));
+                        });
+                    }
+                }
+
+                // Tambahkan event listener untuk mendeteksi tombol Enter
+                document.getElementById("searchInput").addEventListener("keypress", function (event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        searchLocation();
+                    }
+                });
+
+                function searchLocationSAL() {
+                    let query = document.getElementById("searchInput").value.trim().toLowerCase();
+                    if (query) {
+                        fetch('data/SAL/TitikSRWebGIS.geojson')
+                            .then(response => response.json())
+                            .then(data => {
+                                let found = false;
+
+                                // Loop melalui fitur GeoJSON
+                                data.features.forEach(feature => {
+                                    let namaPemilik = feature.properties.Nama_Pemil.toLowerCase();
+                                    if (namaPemilik.includes(query)) {
+                                        found = true;
+                                        let coordinates = feature.geometry.coordinates;
+                                        let latlng = [coordinates[1], coordinates[0]];
+
+                                        // Zoom ke lokasi dan tampilkan popup
+                                        maps['map2'].setView(latlng, 15);
+                                        L.popup()
+                                            .setLatLng(latlng)
+                                            .setContent(`
+                                                <div style="font-family: 'Poppins', sans-serif; font-size: 14px;">
+                                                    <h5 style="margin: 0; font-size: 16px; color: #085ccc;">Informasi Lokasi</h5>
+                                                    <p style="margin: 5px 0;">
+                                                        <strong>Nama Pemilik:</strong> ${feature.properties.Nama_Pemil}<br>
+                                                        <strong>Kecamatan:</strong> ${feature.properties.Kecamatan}<br>
+                                                        <strong>Kelurahan:</strong> ${feature.properties.Kelurahan}<br>
+                                                        <strong>Alamat:</strong> ${feature.properties.Alamat}
+                                                    </p>
+                                                </div>
+                                            `)
+                                            .openOn(maps['map2']);
+                                    }
+                                });
+
+                                if (!found) {
+                                    alert("Lokasi dengan nama pemilik tersebut tidak ditemukan!");
+                                }
+                            })
+                            .catch(error => console.error("Terjadi kesalahan saat memuat GeoJSON:", error));
+                    }
+                }
+        
+                initializeMapRTLH();
+                initializeMapSAL();
+                // initializeMapMCK();
+        
+                function showMap(mapId, btn) {
+                    document.querySelectorAll('.map').forEach(map => {
+                        map.classList.remove('active');
+                    });
+                    document.getElementById(mapId).classList.add('active');
+                    maps[mapId].invalidateSize();
+
+                    document.querySelectorAll('.tab-btn').forEach(button => {
+                        button.classList.remove('clicked');
+                        button.classList.remove('active-btn');
+                    });
+                    btn.classList.add('clicked');
+                    btn.classList.add('active-btn');
+                }
+
+                function searchLocation() {
+                    let query = document.getElementById("searchInput").value.trim().toLowerCase();
+                    if (!query) {
+                        alert("Masukkan kata kunci untuk pencarian!");
+                        return;
+                    }
+
+                    // Deteksi peta aktif
+                    const activeMapId = document.querySelector('.map.active').id;
+
+                    if (activeMapId === 'map1') {
+                        // Pencarian untuk peta RTLH
+                        let found = false;
+                        ['Gondokusuman_1', 'Gondoman_1', 'Jetis_1', 'Kotagede_1', 'Mantrijeron_1', 'Mergangsan_1', 'Ngampilan_1', 'Pakualaman1', 'Tegalrejo_1'].forEach(file => {
+                            fetch(`data/RTLH/${file}.geojson`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    data.features.forEach(feature => {
+                                        let name = feature.properties.Name.toLowerCase();
+                                        if (name.includes(query)) {
+                                            found = true;
+                                            let coordinates = feature.geometry.coordinates;
+                                            let latlng = [coordinates[1], coordinates[0]];
+
+                                            // Zoom ke lokasi dan tampilkan popup
+                                            maps['map1'].setView(latlng, 15);
+                                            L.popup()
+                                                .setLatLng(latlng)
+                                                .setContent(`
+                                                    <div style="font-family: 'Poppins', sans-serif; font-size: 14px;">
+                                                        <h5 style="margin: 0; font-size: 16px; color: #085ccc;">Informasi Lokasi</h5>
+                                                        <p style="margin: 5px 0;">
+                                                            <strong>Nama Pemilik:</strong> ${feature.properties.Name}<br>
+                                                            <strong>Status:</strong> ${feature.properties.Status || 'Tidak tersedia'}
+                                                        </p>
+                                                    </div>
+                                                `)
+                                                .openOn(maps['map1']);
+                                        }
+                                    });
+
+                                    if (!found) {
+                                        alert("Lokasi dengan nama tersebut tidak ditemukan di peta RTLH!");
+                                    }
+                                })
+                                .catch(error => console.error(`Terjadi kesalahan saat memuat ${file}.geojson:`, error));
+                        });
+                    } else if (activeMapId === 'map2') {
+                        // Pencarian untuk peta SAL
+                        fetch('data/SAL/TitikSRWebGIS.geojson')
+                            .then(response => response.json())
+                            .then(data => {
+                                let found = false;
+                                data.features.forEach(feature => {
+                                    let namaPemilik = feature.properties.Nama_Pemil.toLowerCase();
+                                    if (namaPemilik.includes(query)) {
+                                        found = true;
+                                        let coordinates = feature.geometry.coordinates;
+                                        let latlng = [coordinates[1], coordinates[0]];
+
+                                        // Zoom ke lokasi dan tampilkan popup
+                                        maps['map2'].setView(latlng, 15);
+                                        L.popup()
+                                            .setLatLng(latlng)
+                                            .setContent(`
+                                                <div style="font-family: 'Poppins', sans-serif; font-size: 14px;">
+                                                    <h5 style="margin: 0; font-size: 16px; color: #085ccc;">Informasi Lokasi</h5>
+                                                    <p style="margin: 5px 0;">
+                                                        <strong>Nama Pemilik:</strong> ${feature.properties.Nama_Pemil}<br>
+                                                        <strong>Kecamatan:</strong> ${feature.properties.Kecamatan}<br>
+                                                        <strong>Kelurahan:</strong> ${feature.properties.Kelurahan}<br>
+                                                        <strong>Alamat:</strong> ${feature.properties.Alamat}
+                                                    </p>
+                                                </div>
+                                            `)
+                                            .openOn(maps['map2']);
+                                    }
+                                });
+
+                                if (!found) {
+                                    alert("Lokasi dengan nama tersebut tidak ditemukan di peta SAL!");
+                                }
+                            })
+                            .catch(error => console.error("Terjadi kesalahan saat memuat GeoJSON:", error));
+                    } else {
+                        alert("Peta aktif tidak ditemukan!");
+                    }
+                }
+            </script>
+            <!-- Feature End -->
+
+            <!-- Program Start -->
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;"
+                id="deskripsi">
+                <h1 class="display-4 mb-2"
+                    style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px;">
+                    Program</h1>
+                <p class="mb-0">Program ini bertujuan untuk meningkatkan kualitas hunian dan lingkungan di Kota
+                    Yogyakarta
+                    dengan berbagai upaya, seperti perbaikan rumah tidak layak huni, penataan kawasan kumuh, pengelolaan
+                    air
+                    limbah, serta pembangunan kawasan berkelanjutan.</p>
+            </div>
+            <div class="container mt-2">
+                <div class="row g-3">
+                    <!-- RTLH -->
+                    <div class="col-md-6">
+                        <div class="program-card">
+                            <img src="img/rtlh_.jpeg" alt="RTLH" class="program-img">
+                            <div class="program-body">
+                                <h5>RTLH</h5>
+                                <p>Program Rumah Tidak Layak Huni (RTLH) bertujuan untuk meningkatkan kualitas hunian
+                                    bagi
+                                    masyarakat yang membutuhkan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kawasan Kumuh -->
+                    <div class="col-md-6">
+                        <div class="program-card">
+                            <img src="img/kawasan_kumuh_.jpeg" alt="Kawasan Kumuh" class="program-img">
+                            <div class="program-body">
+                                <h5>Penataan Kawasan Kumuh</h5>
+                                <p>Program penataan dan perbaikan kawasan kumuh agar menjadi lingkungan yang lebih
+                                    sehat,
+                                    tertata, dan layak huni.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saluran Air Limbah -->
+                    <div class="col-md-6">
+                        <div class="program-card">
+                            <img src="img/kawasan_kumuh_.jpeg" alt="Saluran Air Limbah" class="program-img">
+                            <div class="program-body">
+                                <h5>Pengelolaan Sistem Air Limbah</h5>
+                                <p>Program pengelolaan air limbah untuk meningkatkan sanitasi dan mencegah pencemaran
+                                    lingkungan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MKC -->
+                    <div class="col-md-6">
+                        <div class="program-card">
+                            <img src="img/kawasan_kumuh_.jpeg" alt="MKC" class="program-img">
+                            <div class="program-body">
+                                <h5>MKC</h5>
+                                <p>Program pengelolaan kawasan perkotaan yang berkelanjutan dan berbasis lingkungan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Program End -->
+
+            <!-- Galeri Start -->
+            <div class="container-fluid team pb-5 p-5 mt-5">
+                <div class="container pb-5">
+                    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;"
+                        id="produk">
+                        <h1 class="display-4 mb-2"
+                            style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px;">Peta
+                            Perumahan
+                            Kota Yogyakarta</h1>
+                        <p>Berikut adalah hasil sebaran peta perumahan di setiap kalurahan serta sebaran
+                            perumahan secara keseluruhan di Kota Yogyakarta.</p>
+                    </div>
+                    <div class="row justify-content-center g-4">
+                        <!-- Peta Pakualaman -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalPakualaman">
+                                <div class="team-img">
+                                    <img src="img/Pakualaman.jpg" class="img-fluid w-100" alt="Peta Pakualaman">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Pakualaman</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Jetis -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalJetis">
+                                <div class="team-img">
+                                    <img src="img/Jetis.jpg" class="img-fluid w-100" alt="Peta Jetis">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Jetis</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Mantrijeron -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalMantrijeron">
+                                <div class="team-img">
+                                    <img src="img/Mantrijeron.jpg" class="img-fluid w-100" alt="Peta Mantrijeron">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Mantrijeron</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Mergangsan -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalMergangsan">
+                                <div class="team-img">
+                                    <img src="img/Mergangsan.jpg" class="img-fluid w-100" alt="Peta Mergangsan">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Mergangsan</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Gondokusuman -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalGondokusuman">
+                                <div class="team-img">
+                                    <img src="img/Gondokusuman.jpg" class="img-fluid w-100" alt="Peta Gondokusuman">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Gondokusuman</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center g-4 mt-1">
+                        <!-- Peta Kotagede -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalKotagede">
+                                <div class="team-img">
+                                    <img src="img/Kotagede.jpg" class="img-fluid w-100" alt="Peta Kotagede">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Kotagede</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Tegalrejo -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalTegalrejo">
+                                <div class="team-img">
+                                    <img src="img/Tegalrejo.jpg" class="img-fluid w-100" alt="Peta Tegalrejo">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Tegalrejo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Umbulharjo -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalUmbulharjo">
+                                <div class="team-img">
+                                    <img src="img/Umbulharjo.jpg" class="img-fluid w-100" alt="Peta Umbulharjo">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Umbulharjo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Wirobrajan -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalWirobrajan">
+                                <div class="team-img">
+                                    <img src="img/Wirobrajan.jpg" class="img-fluid w-100" alt="Peta Wirobrajan">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Peta
+                                        Wirobrajan</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Peta Perumahan -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item" data-bs-toggle="modal" data-bs-target="#modalPerumahan">
+                                <div class="team-img">
+                                    <img src="img/Peta-Sebaran.jpg" class="img-fluid w-100" alt="Peta Perumahan">
+                                </div>
+                                <div class="team-title text-center">
+                                    <p class="mb-0"
+                                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;">
+                                        Sebaran Perumahan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Galeri End -->
+
+            <!-- Modal Template Untuk Icon Print & Unduh-->
+            <div class="modal fade" id="modalPakualaman" tabindex="-1" aria-labelledby="modalLabelPakualaman"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelPakualaman">Peta Pakualaman</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaPakualaman')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Pakualaman.jpg"
+                                    download="Peta_Pakualaman.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Pakualaman.jpg" class="img-fluid" alt="Peta Pakualaman" id="petaPakualaman">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Jetis -->
+            <div class="modal fade" id="modalJetis" tabindex="-1" aria-labelledby="modalLabelJetis" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelJetis">Peta Jetis</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaJetis')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Jetis.jpg" download="Peta_Jetis.jpg"
+                                    title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Jetis.jpg" class="img-fluid" alt="Peta Jetis" id="petaJetis">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Mantrijeron -->
+            <div class="modal fade" id="modalMantrijeron" tabindex="-1" aria-labelledby="modalLabelMantrijeron"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelMantrijeron">Peta Mantrijeron</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaMantrijeron')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Mantrijeron.jpg"
+                                    download="Peta_Mantrijeron.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Mantrijeron.jpg" class="img-fluid" alt="Peta Mantrijeron"
+                                id="petaMantrijeron">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Mergangsan -->
+            <div class="modal fade" id="modalMergangsan" tabindex="-1" aria-labelledby="modalLabelMergangsan"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelMergangsan">Peta Mergangsan</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaMergangsan')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Mergangsan.jpg"
+                                    download="Peta_Mergangsan.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Mergangsan.jpg" class="img-fluid" alt="Peta Mergangsan" id="petaMergangsan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Gondokusuman -->
+            <div class="modal fade" id="modalGondokusuman" tabindex="-1" aria-labelledby="modalLabelGondokusuman"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelGondokusuman">Peta Gondokusuman</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaGondokusuman')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Gondokusuman.jpg"
+                                    download="Peta_Gondokusuman.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Gondokusuman.jpg" class="img-fluid" alt="Peta Gondokusuman"
+                                id="petaGondokusuman">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Kotagede -->
+            <div class="modal fade" id="modalKotagede" tabindex="-1" aria-labelledby="modalLabelKotagede"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelKotagede">Peta Kotagede</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaKotagede')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Kotagede.jpg"
+                                    download="Peta_Kotagede.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Kotagede.jpg" class="img-fluid" alt="Peta Kotagede" id="petaKotagede">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Tegalrejo -->
+            <div class="modal fade" id="modalTegalrejo" tabindex="-1" aria-labelledby="modalLabelTegalrejo"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelTegalrejo">Peta Tegalrejo</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaTegalrejo')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Tegalrejo.jpg"
+                                    download="Peta_Tegalrejo.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Tegalrejo.jpg" class="img-fluid" alt="Peta Tegalrejo" id="petaTegalrejo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Umbulharjo -->
+            <div class="modal fade" id="modalUmbulharjo" tabindex="-1" aria-labelledby="modalLabelUmbulharjo"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelUmbulharjo">Peta Umbulharjo</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaUmbulharjo')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Umbulharjo.jpg"
+                                    download="Peta_Umbulharjo.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Umbulharjo.jpg" class="img-fluid" alt="Peta Umbulharjo" id="petaUmbulharjo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Wirobrajan -->
+            <div class="modal fade" id="modalWirobrajan" tabindex="-1" aria-labelledby="modalLabelWirobrajan"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelWirobrajan">Peta Wirobrajan</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaWirobrajan')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Wirobrajan.jpg"
+                                    download="Peta_Wirobrajan.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Wirobrajan.jpg" class="img-fluid" alt="Peta Wirobrajan" id="petaWirobrajan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Perumahan -->
+            <div class="modal fade" id="modalPerumahan" tabindex="-1" aria-labelledby="modalLabelPerumahan"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabelPerumahan">Sebaran Perumahan</h5>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="printPeta('petaPerumahan')"
+                                    title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <a class="btn btn-outline-success btn-sm" href="img/Peta-Sebaran.jpg"
+                                    download="Peta_Perumahan.jpg" title="Unduh">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="img/Peta-Sebaran.jpg" class="img-fluid" alt="Peta Perumahan" id="petaPerumahan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script untuk Print -->
+            <script>
+                function printPeta(id) {
+                    var peta = document.getElementById(id).src;
+                    var win = window.open();
+                    win.document.write('<img src="' + peta + '" style="width:100%;">');
+                    win.document.close();
+                    win.focus();
+                    win.print();
+                    win.close();
+                }
+            </script>
+
+            <!-- FontAwesome untuk ikon -->
+            <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+
+            <!-- Modal untuk menampilkan peta full -->
+            <div class="modal fade" id="modalPakualaman" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Pakualaman</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Pakualaman.jpg" alt="Peta Pakualaman">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalJetis" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Jetis</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Jetis.jpg" alt="Peta Jetis">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalMantrijeron" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Mantrijeron</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Mantrijeron.jpg" alt="Peta Mantrijeron">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalMergangsan" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Mergangsan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Mergangsan.jpg" alt="Peta Mergangsan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalGondokusuman" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Gondokusuman</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Gondokusuman.jpg" alt="Peta Gondokusuman">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Kotagede -->
+            <div class="modal fade" id="modalKotagede" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Kotagede</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Kotagede.jpg" alt="Peta Kotagede">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Tegalrejo -->
+            <div class="modal fade" id="modalTegalrejo" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Tegalrejo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Tegalrejo.jpg" alt="Peta Tegalrejo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Umbulharjo -->
+            <div class="modal fade" id="modalUmbulharjo" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Umbulharjo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Umbulharjo.jpg" alt="Peta Umbulharjo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Wirobrajan -->
+            <div class="modal fade" id="modalWirobrajan" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Wirobrajan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Wirobrajan.jpg" alt="Peta Wirobrajan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Peta Perumahan -->
+            <div class="modal fade" id="modalPerumahan" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Peta Perumahan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="img/Perumahan.jpg" alt="Peta Perumahan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Start -->
+            <!-- Tambahkan Google Fonts di bagian <head> jika belum ada -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+                rel="stylesheet">
+
+            <div class="container-fluid footer py-0 wow fadeIn" data-wow-delay="0.2s"
+                style="font-family: 'Poppins', sans-serif;" id="kontak">
+                <div class="container py-0">
+                    <div class="row g-5 align-items-center">
+                        <!-- Kolom LifeSure -->
+                        <div class="col-md-3">
+                            <div class="footer-item">
+                                <a href="index.html" class="p-0">
+                                    <span class="text-white"><strong>DINAS PEKERJAAN UMUM PERUMAHAN DAN KAWASAN
+                                            PERMUKIMAN</strong></span>
+                                </a>
+                                <div class="footer-btn d-flex">
+                                    <a class="btn btn-md-square rounded-circle me-3"
+                                        href="https://www.facebook.com/humaskotajogja/posts/dinas-pekerjaan-umum-perumahan-dan-kawasan-permukiman-kota-yogyakarta-bersama-de/1126482980854783/"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-md-square rounded-circle me-3"
+                                        href="https://www.youtube.com/@dinaspupkpkotayogyakarta"><i
+                                            class="fab fa-youtube"></i></a>
+                                    <a class="btn btn-md-square rounded-circle me-3"
+                                        href="https://www.instagram.com/dpupkpkotajogja"><i
+                                            class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-md-square rounded-circle me-0"
+                                        href="https://pu.jogjakota.go.id"><i class="fas fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kolom Kontak (Address, Email, Telepon) -->
+                        <div class="col-md-3">
+                            <div class="pt-2">
+                                <div class="row g-3">
+                                    <!-- Alamat -->
+                                    <div class="col-12 d-flex align-items-center">
+                                        <a class="d-flex justify-content-center align-items-center flex-shrink-0 rounded-circle bg-primary text-white me-3"
+                                            href="https://maps.app.goo.gl/t5pJRudAScFXo9Ff7" target="_blank"
+                                            style="width: 45px; height: 45px; min-width: 45px; min-height: 45px;">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </a>
+                                        <a href="https://maps.app.goo.gl/t5pJRudAScFXo9Ff7" target="_blank"
+                                            class="text-white text-decoration-none">
+                                            Jl. Kenari No.56, Muja Muju, Umbulharjo, Yogyakarta, DIY, 55165
+                                        </a>
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="col-12 d-flex align-items-center">
+                                        <a class="d-flex justify-content-center align-items-center flex-shrink-0 rounded-circle bg-primary text-white me-3"
+                                            href="mailto:puperkim@jogjakota.go.id"
+                                            style="width: 45px; height: 45px; min-width: 45px; min-height: 45px;">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="mailto:puperkim@jogjakota.go.id"
+                                            class="text-white text-decoration-none">
+                                            puperkim@jogjakota.go.id
+                                        </a>
+                                    </div>
+                                    <!-- Telepon -->
+                                    <div class="col-12 d-flex align-items-center">
+                                        <a class="d-flex justify-content-center align-items-center flex-shrink-0 rounded-circle bg-primary text-white me-3"
+                                            href="tel:+62274515867"
+                                            style="width: 45px; height: 45px; min-width: 45px; min-height: 45px;">
+                                            <i class="fa fa-phone-alt"></i>
+                                        </a>
+                                        <a href="tel:+62274515867" class="text-white text-decoration-none">
+                                            (0274) 515867
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Kolom Google Maps (Lebih Lebar) -->
+                        <div class="col-md-6">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.892296659849!2d110.38845037360183!3d-7.801226077437117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57635e5b33ed%3A0x820f24604a3bca17!2sDinas%20Pekerjaan%20Umum%20Perumahan%20dan%20Kawasan%20Pemukiman%20(%20DPUPKP%20)%20Kota%20Yogyakarta!5e0!3m2!1sid!2sid!4v1739764784527!5m2!1sid!2sid"
+                                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Footer End -->
+
+            <!-- Copyright Start -->
+            <div class="container-fluid copyright py-4">
+                <div class="container">
+                    <div class="row g-4 align-items-center">
+                        <div class="text-center" style="font-family: 'Poppins', sans-serif;">
+                            <span class="text-body"><a href="#" class="border-bottom text-white"><i
+                                        class="fas fa-copyright text-light me-2"></i>2025 Pemerintah Kota
+                                    Yogyakarta</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright End -->
+
+
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i
+                    class="fa fa-arrow-up"></i></a>
+
+
+            <!-- JavaScript Libraries -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="lib/wow/wow.min.js"></script>
+            <script src="lib/easing/easing.min.js"></script>
+            <script src="lib/waypoints/waypoints.min.js"></script>
+            <script src="lib/counterup/counterup.min.js"></script>
+            <script src="lib/lightbox/js/lightbox.min.js"></script>
+            <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+            <!-- Template Javascript -->
+            <script src="js/main.js"></script>
+        </body>
+
+</html>

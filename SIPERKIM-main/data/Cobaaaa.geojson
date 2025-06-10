@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Cobaaaa",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "coba 2", "FolderPath": "Coba Polygon.kml/Coba Polygon", "SymbolID": 0, "AltMode": 0, "Base": 0.0, "Clamped": -1, "Extruded": 0, "Snippet": null, "PopupInfo": null, "Shape_Leng": 0.00285674504, "Shape_Area": 5.0802e-07 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.36649045300004, -7.804447551999942, 0.0 ], [ 110.365818771000079, -7.804362740999977, 0.0 ], [ 110.365875798000047, -7.803648492999969, 0.0 ], [ 110.36588265000006, -7.803648948999978, 0.0 ], [ 110.366554637000036, -7.803666045999933, 0.0 ], [ 110.36649045300004, -7.804447551999942, 0.0 ] ] ] ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "coba 1", "FolderPath": "Coba Polygon.kml/Coba Polygon", "SymbolID": 0, "AltMode": 0, "Base": 0.0, "Clamped": -1, "Extruded": 0, "Snippet": null, "PopupInfo": null, "Shape_Leng": 0.00310095584, "Shape_Area": 6.1877e-07 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.372693685000058, -7.803382576999979, 0.0 ], [ 110.37271888500004, -7.802698331999977, 0.0 ], [ 110.372726226000054, -7.802700473999948, 0.0 ], [ 110.372735973000033, -7.802702527999941, 0.0 ], [ 110.373490987000082, -7.802711703999933, 0.0 ], [ 110.373462733000054, -7.803544724999938, 0.0 ], [ 110.372861908000061, -7.803504766999936, 0.0 ], [ 110.372693685000058, -7.803382576999979, 0.0 ] ] ] ] } }
+]
+}

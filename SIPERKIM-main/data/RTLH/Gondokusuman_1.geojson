@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "Gondokusuman_1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Didik Sunarso", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.369129909000037, -7.789067902999932, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Kusmainah", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380717766000089, -7.790957333999927, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Sutiman", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380274267000061, -7.784172835999925, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Bajuri", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380274240000062, -7.784190925999951, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Supardjo", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380825857000048, -7.785286192999934, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Sulistiyowati", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380094435000046, -7.795451851999928, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Sagiyem", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.379682172000059, -7.785935771999959, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Rurminingsih", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 1, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.379958841000075, -7.758086193999929, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Suratini", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.379945314000054, -7.785845704999929, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Warsito", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380428789000064, -7.783937887999969, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Subarno", "FolderPath": "Gondokusuman.kml/Gondokusuman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.380968695000035, -7.786833119999926, 0.0 ] } }
+]
+}

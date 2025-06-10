@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "Pakualaman_1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Nuri Anwar", "FolderPath": "Pakualaman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.37762, -7.80006, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Mubadi", "FolderPath": "Pakualaman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.378201640000043, -7.799361099999942, 0.0 ] } },
+{ "type": "Feature", "properties": { "OID_": 0, "Name": "Ambar Desasongko", "FolderPath": "Pakualaman", "SymbolID": 0, "AltMode": -1, "Base": 0.0, "Snippet": null, "PopupInfo": null, "HasLabel": -1, "LabelID": 0 }, "geometry": { "type": "Point", "coordinates": [ 110.377225750000036, -7.802603099999942, 0.0 ] } }
+]
+}
